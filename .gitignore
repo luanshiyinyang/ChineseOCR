@@ -1,0 +1,9 @@
+.idea/
+__pycache__/
+.vscode/
+*.tar.gz
+*.list
+*.rar
+*.zip
+train_images/
+logs/
