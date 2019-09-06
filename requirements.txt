@@ -1,6 +1,6 @@
-keras==2.1.6
-numpy
+numpy==1.16.0
 pandas
 tensorflow
+keras
 opencv-python
 tqdm

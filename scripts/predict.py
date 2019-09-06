@@ -18,7 +18,7 @@ n_classes = len(characters)
 def get_model():
 
     input_tensor = Input(shape=(32, None, 1), name='the_input')
-    y_pred = densenet.dense_cnn(input_tensor, n_classes)
+    y_pred = densenet.dense_blstm(input_tensor, n_classes)
     base_model = Model(inputs=input_tensor, outputs=y_pred)
     model_file = '../models/best_model_weights.h5'
     if not os.path.exists(model_file):
@@ -34,7 +34,7 @@ def decode(pred):
     pred_text = pred.argmax(axis=2)[0]
     for i in range(len(pred_text)):
         if pred_text[i] != n_classes - 1 and ((not (i > 0 and pred_text[i] == pred_text[i - 1])) or (i > 1 and pred_text[i] == pred_text[i - 2])):
-            char_list.append(characters[pred_text[i]])
+            char_list.append(characters[pred_text[i]-1])  # gen的逆操作
     return ''.join(char_list)
 
 
@@ -65,7 +65,7 @@ def predict(img):
 
 
 if __name__ == '__main__':
-    images_file = glob.glob("../test_images/*")
+    images_file = glob.glob("../test_images/*.jpg")
     for file in images_file:
         image = cv2.imread(file)
         predict(image)

@@ -6,4 +6,5 @@ __pycache__/
 *.rar
 *.zip
 train_images/
+test_images/
 logs/
