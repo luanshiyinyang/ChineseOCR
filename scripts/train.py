@@ -65,10 +65,9 @@ def get_dataset():
     return train_generator, test_generator, len(df_train), len(df_test)
 
 
-def train(model_file):
+def train():
     """
-    训练函数
-    :param model_file:
+    训练
     :return:
     """
     # 获取命令行参数
@@ -95,7 +94,7 @@ def train(model_file):
 
 
 if __name__ == '__main__':
-    train(model_file)
+    train()
 
 
 
