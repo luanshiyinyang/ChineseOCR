@@ -1,6 +1,6 @@
 numpy==1.16.0
 pandas
-tensorflow
+tensorflow-gpu
 keras
 opencv-python
 tqdm
